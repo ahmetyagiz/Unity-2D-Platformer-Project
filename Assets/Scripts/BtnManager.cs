@@ -15,7 +15,7 @@ public class BtnManager : MonoBehaviour
 
     public void Play()
     {
-        StartCoroutine("SceneCoroutine");
+        StartCoroutine(SceneCoroutine());
     }
 
     IEnumerator SceneCoroutine()
@@ -47,12 +47,12 @@ public class BtnManager : MonoBehaviour
 
     public void Start()
     {
-        GameObject.Find("OynaBtn").GetComponent<Button>().interactable = false;
+        GameObject.Find("PlayBtn").GetComponent<Button>().interactable = false;
         GameObject.Find("CreditsBtn").GetComponent<Button>().interactable = false;
         GameObject.Find("ExitBtn").GetComponent<Button>().interactable = false;
 
         DinoTxt.transform.DOMoveY(3, 1.5f).SetEase(Ease.OutBack);
-        StartCoroutine("DinoHeaderCoroutine");
+        StartCoroutine(DinoHeaderCoroutine());
     }
     
     IEnumerator DinoHeaderCoroutine()
@@ -61,7 +61,7 @@ public class BtnManager : MonoBehaviour
         BtnPanel.transform.DOMoveX(0, 1.5f).SetEase(Ease.OutBack);
         yield return new WaitForSeconds(1.5f);
 
-        GameObject.Find("OynaBtn").GetComponent<Button>().interactable = true;
+        GameObject.Find("PlayBtn").GetComponent<Button>().interactable = true;
         GameObject.Find("CreditsBtn").GetComponent<Button>().interactable = true;
         GameObject.Find("ExitBtn").GetComponent<Button>().interactable = true;
     }
